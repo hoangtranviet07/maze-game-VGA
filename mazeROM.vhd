@@ -1,5 +1,11 @@
-library IEEE;
+------------------------------------------------------------------
+-- ECE 318: Final Project - Maze Game
+-- Grant Bouvin, Collin Harrington, & Hoang Tran
+-- mazeROM: stores the different mazes of the game
+-- Date: 6/3/2025
+------------------------------------------------------------------
 
+library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity mazeROM is 
