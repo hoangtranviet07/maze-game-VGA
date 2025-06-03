@@ -1,3 +1,5 @@
+-- JUST HERE FOR REFERENCE REMOVE AFTER USE
+
 -- Bouncing Ball Video from DE2Core Library
 -- Documentation added to clarify code behavior - CT
 
