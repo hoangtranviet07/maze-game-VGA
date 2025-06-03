@@ -1,0 +1,16 @@
+------------------------------------------------------------------
+-- ECE 318: Final Project - Maze Game
+-- Grant Bouvin, Collin Harrington, & Hoang Tran
+-- mazeDisplay: runs the code to convert the maze to a video output
+-- Date: 6/3/2025
+------------------------------------------------------------------
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity mazeDisplay is
+end entity;
+
+architecture mazeDisplay_arch of mazeDisplay is 
+begin
+end architecture;
