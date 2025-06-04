@@ -8,7 +8,8 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
--- Going to need some Arith library I cant remember right now
+use IEEE.std_logic_arith.all; 
+USE IEEE.std_logic_unsigned.all; 
 
 entity timer is 
     port(

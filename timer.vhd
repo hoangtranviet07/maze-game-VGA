@@ -8,7 +8,8 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
--- Going to need some Arith library I cant remember right now
+use IEEE.std_logic_arith.all; 
+USE IEEE.std_logic_unsigned.all; 
 
 entity timer is 
     generic(
@@ -28,6 +29,7 @@ architecture timer_arch of timer is
 begin
 
     -- Do some math to determine how much CLOCK_50 should be divided to get 1 hundreth of a second frequency
+    -- Implement some sort of ripple counter or other precision clock (see class slides)
     -- Then use that to govern the following process:
 
     COUNTDOWN : process (clock_100Hz, Reset)
@@ -39,6 +41,6 @@ begin
         end if; 
     end process;
 
-    output <= CONV_STD_LOGIC_VECTOR(timer_value, 14);
+    output <= CONV_STD_LOGIC_VECTOR(timer_value, 14); --lib required
 
 end architecture;

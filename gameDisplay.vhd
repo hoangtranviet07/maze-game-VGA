@@ -7,6 +7,9 @@
 
 library IEEE;
 use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+use IEEE.std_logic_arith.all; 
+USE IEEE.std_logic_unsigned.all; 
 
 entity gameDisplay is
 
