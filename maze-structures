@@ -1,0 +1,44 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity maze_design is
+end maze_design;
+
+architecture maze_design_arch of maze_design is
+
+  type maze_array is array (0 to 2) of std_logic_vector(63 downto 0);
+
+  constant mazes : maze_array := (
+    -- Example 1 (1 = wall, 0 = path): start (0,0), goal (7,7)
+    0 => "10111101" &
+         "10100101" &
+         "11101101" &
+         "00101001" &
+         "11111111" &
+         "10000000" &
+         "11111111" &
+         "00000001",
+
+    -- Example 2 (1 = wall, 0 = path): start (0,0), goal (7,7)
+    1 => "00000000" &
+         "11111110" &
+         "00000010" &
+         "01111010" &
+         "01001010" &
+         "01001110" &
+         "01111000" &
+         "00000000",
+    -- Example 3 (1 = wall, 0 = path): start (0,0), goal (7,7)
+    2 => "11111111" &
+         "00000001" &
+         "11111101" &
+         "10000101" &
+         "10110101" &
+         "10100101" &
+         "11101111" &
+         "00101000",
+  );
+
+begin
+
+end maze_design_arch;
