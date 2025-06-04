@@ -8,7 +8,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity mazeDisplay is
+entity gameDisplay is
 
     port(
         pixel_row, pixel_column : std_logic_vector(9 downto 0); //Current position VGA is drawing
@@ -17,7 +17,7 @@ entity mazeDisplay is
     );
 end entity;
 
-architecture mazeDisplay_arch of mazeDisplay is 
+architecture gameDisplay_arch of gameDisplay is 
 begin
 
     DISPLAY_RGB : process //Sensitivity List???
