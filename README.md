@@ -1,82 +1,85 @@
-# Maze Game (VGA, VHDL)
+Maze Game (VGA, VHDL)
 
-\[
-\textbf{A Hardware Maze Game implemented in VHDL with VGA Output}
-\]
+This project implements a maze game in VHDL with VGA output. The game displays a maze on a 640×480 VGA screen. The player controls a ball and must reach the goal before the timer runs out.
 
----
+Demo video: Watch here
 
-## \section*{Abstract}
-This project implements a simple maze game entirely in **VHDL**.  
-The system outputs graphics to a VGA monitor at \(640 \times 480 \, @ \, 60\,Hz\).  
-A player controls a ball through the maze to reach the goal before the timer expires.  
+Features
 
-\[
-\text{Demo: } \href{https://drive.google.com/file/d/1gxoyXRhgmTETSwnpEEDtXQtIgmuytdFo/view?usp=sharing}{\text{Watch Video}}
-\]
+VGA controller generating HSYNC, VSYNC, and pixel coordinates.
 
----
+Maze layout stored in ROM (mazeROM.vhd).
 
-## \section*{System Overview}
-- **VGA Synchronization**: Generates HSYNC, VSYNC, and pixel coordinates.  
-- **Maze ROM**: Stores the wall layout of the maze.  
-- **Ball Module**: Updates position from user input and checks for collisions.  
-- **Game Controller FSM**: Handles \(\{Idle \rightarrow Playing \rightarrow Win/Lose\}\).  
-- **Display Logic**: Renders maze, ball, goal, and background.  
-- **Timer**: Countdown with seven-segment display output.  
+Player ball with collision detection against walls (ball.vhd).
 
----
+Finite State Machine for game states: idle, playing, win, timeout (gameController.vhd).
 
-## \section*{Architecture}
-\[
-\begin{array}{ll}
-\texttt{VGA\_SYNC.vhd} & \text{Generates sync pulses and coordinates} \\
-\texttt{mazeROM.vhd} & \text{ROM-based maze structure} \\
-\texttt{ball.vhd} & \text{Sprite control + collision detection} \\
-\texttt{gameController.vhd} & \text{Finite state machine (FSM)} \\
-\texttt{gameDisplay.vhd} & \text{Color generation logic} \\
-\texttt{timer.vhd, sevseg.vhd} & \text{Timer + seven-segment display} \\
-\texttt{mazeGameTop.bdf} & \text{Top-level integration} \\
-\texttt{VGAPracticePinAssignments.qsf} & \text{Quartus pin constraints} \\
-\end{array}
-\]
+Rendering logic for maze, ball, goal, and background (gameDisplay.vhd).
 
----
+Countdown timer displayed on seven-segment LEDs (timer.vhd, sevseg.vhd).
 
-## \section*{Controls}
-- \( \uparrow, \downarrow, \leftarrow, \rightarrow \): Move the ball  
-- **Reset Button**: Restart the game  
+Top-level schematic integration (mazeGameTop.bdf).
 
-\[
-\text{Note: Pin mapping depends on your FPGA board; see QSF file.}
-\]
+Pin assignment file for Quartus projects (VGAPracticePinAssignments.qsf).
 
----
+How It Works
 
-## \section*{Build Instructions}
-1. Open Quartus and create a project.  
-2. Add all `.vhd` files and `mazeGameTop.bdf`.  
-3. Apply `VGAPracticePinAssignments.qsf`.  
-4. Compile the design.  
-5. Program the FPGA and connect a VGA monitor.  
+The VGA module drives a 640×480 @ 60 Hz display using a 25 MHz clock.
 
----
+The ball position updates based on player input.
 
-## \section*{Customization}
-- **Maze Layout**: Edit `mazeROM.vhd`.  
-- **Difficulty**: Adjust timer constants or ball step size.  
-- **Graphics**: Modify color assignments in `gameDisplay.vhd`.  
+The system checks for collisions with maze walls.
 
----
+If the goal is reached before time runs out, the player wins.
 
-## \section*{Conclusion}
-This project demonstrates how a classic maze game can be implemented  
-using pure hardware description logic.  
-The design is modular, customizable, and provides a foundation for  
-more advanced FPGA-based gaming systems.  
+If the timer expires, the game ends.
 
----
+Controls
 
-## \section*{Credits}
-Forked from \texttt{BouvinGithub/maze-game}.  
-Maintained by \href{https://github.com/hoangtranviet07}{hoangtranviet07}.
+Switches or keys for movement: up, down, left, right.
+
+Reset button to restart the game.
+
+Note: Button and switch mapping depends on your FPGA board. See the provided .qsf file for pin assignments.
+
+File Overview
+
+VGA_SYNC.vhd – VGA synchronization module.
+
+gameDisplay.vhd – Rendering and pixel color logic.
+
+gameController.vhd – Game state machine.
+
+ball.vhd – Ball movement and collision logic.
+
+mazeROM.vhd – Maze structure stored in ROM.
+
+timer.vhd, timerDisplay.vhd, sevseg.vhd – Timer and display logic.
+
+mazeGameTop.bdf – Top-level design.
+
+VGAPracticePinAssignments.qsf – Pin assignment file.
+
+Build Instructions
+
+Open Quartus and create a new project.
+
+Add all .vhd files and the top-level schematic (mazeGameTop.bdf).
+
+Apply the pin assignment file (VGAPracticePinAssignments.qsf).
+
+Compile the design.
+
+Program the FPGA.
+
+Connect a VGA monitor and play the game.
+
+Customization
+
+Change the maze layout by editing mazeROM.vhd.
+
+Adjust timer values or ball speed to modify difficulty.
+
+Update gameDisplay.vhd to change colors or graphics.
+
+Re-map controls by editing the top-level design and .qsf file.
